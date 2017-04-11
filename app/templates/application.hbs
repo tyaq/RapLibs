@@ -1,5 +1,30 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
-{{!-- Feel free to remove this! --}}
+{{! with contextual components }} 
+{{#paper-toolbar}} 
+    {{#paper-toolbar-tools}}
+        <h2>
+            RapLibs
+        </h2>
+        {{paper-icon "search"}} 
+        {{#paper-autocomplete 
+            placeholder="Search (Not Working, But Try It)"
+            onSelectionChange=(action (mut selectedItem))
+        }}
+        {{/paper-autocomplete}} 
+    {{/paper-toolbar-tools}}
+{{/paper-toolbar}} 
+
+{{#paper-card as |card|}}
+    {{#card.title as |title|}}
+        {{#title.text as |text|}}
+        {{#text.headline}}HandleBars songName{{/text.headline}}
+        {{#text.subhead}}Large{{/text.subhead}}
+        {{/title.text}}
+        {{title.media size="lg" src="tomster-9918e85a7f1a28c78b484c34cbe88579.png" alt="Tomster" title="Tomster"}}
+    {{/card.title}}
+    {{#card.actions}}
+        {{#paper-button}}Action 1{{/paper-button}}
+        {{#paper-button}}Action 2{{/paper-button}}
+    {{/card.actions}}
+{{/paper-card}}
 
 {{outlet}}
